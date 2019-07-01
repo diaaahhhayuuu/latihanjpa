@@ -49,8 +49,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public List<Employee> getByName(String name) {
-		//return entityManager.createNativeQuery("SELECT * FROM employee WHERE name LIKE ?0", Employee.class) //NATIVE QUERY -- LIKE ?0 fungsinya untuk memasukan pramameter kita. 0nya itu, parmeter ke berapa. liat yg di bawah ini. meng-query suatu DB
-		return entityManager.createQuery("SELECT e FROM Employee e WHERE e.name LIKE ?0", Employee.class) // meng-query suatu objek.digenerate oleh ORM
+		return entityManager.createNativeQuery("SELECT * FROM employee WHERE name LIKE ?0", Employee.class) //NATIVE QUERY -- LIKE ?0 fungsinya untuk memasukan pramameter kita. 0nya itu, parmeter ke berapa. liat yg di bawah ini. meng-query suatu DB
+		//return entityManager.createQuery("SELECT e FROM Employee e WHERE e.name LIKE ?0", Employee.class) // meng-query suatu objek.digenerate oleh ORM
 		.setParameter(0,"%" +name+ "%")
 		.getResultList();
 	}
